@@ -1,6 +1,3 @@
-
-// const { nanoid } = require("nanoid");
-
 const fs = require("fs").promises;
 const path = require("path");
 
@@ -41,11 +38,9 @@ async function removeContact(contactId) {
     const data = await fs.readFile(contactsPath, "utf8");
     const contacts = JSON.parse(data);
 
-
     const filteredContacts = contacts.filter((contact) => contact.id != contactId);
-
     await fs.writeFile(contactsPath, JSON.stringify(filteredContacts, null, 2));
-
+    
     console.table(filteredContacts);
     console.log("\x1b[32m Successfully deleted");
   } catch (error) {
