@@ -27,7 +27,7 @@ async function getContactById(contactId) {
     const data = await fs.readFile(contactsPath, "utf8");
     const contacts = JSON.parse(data);
 
-    const contact = contacts.filter((contact) => contact.id === Number(contactId));
+    const contact = contacts.filter((contact) => contact.id === contactId);
 
     return console.table(contact);
   } catch (error) {
